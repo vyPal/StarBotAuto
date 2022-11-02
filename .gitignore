@@ -1,0 +1,12 @@
+/.env
+/ai.js
+/chart.png
+/chart1.png
+/chart2.png
+/chart3.png
+/gamble.txt
+/gambleai.js
+/log.txt
+/nn.js
+/node_modules
+/package-lock.json
