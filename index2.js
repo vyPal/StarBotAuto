@@ -23,7 +23,7 @@ const alpaca = new Alpaca({
 })
 
 const guild_id = '1035426647966502952';
-const channel_id = '1035426647966502955';
+const channel_id = '1040165179792564304';
 const info_cahnnel_id = '1037284777293778944';
 const chart_channel_id = '1037352483703488512';
 let guild = null;
@@ -51,7 +51,7 @@ let send = () => {channel.send('s!send <@588686932918403072> ' + balance);sendIn
 let sendChart = async () => {
   let labels1 = [];
   let data1 = [];
-  let data = fs.readFileSync(path.join(__dirname, 'balance_history.txt'))
+  let data = fs.readFileSync(path.join(__dirname, 'balance_history2.txt'))
   data.toString().split('\n').forEach((line) => {
     if(line == '') return;
     let split = line.split('|');
@@ -265,7 +265,7 @@ function info() {
   last_balance = balance;
   if(earning_history.length % 5) sendInfo(`Bal:${String(balance).padEnd(10,' ')}|Diff:${String(diff).padEnd(7,' ')}|Pred:${Math.round(earning_history.reduce((a,b) => a+b)/earning_history.length*60*60)}/h|Work in:${ms(until_next_work-Date.now())}|Daily in:${ms(until_next_daily-Date.now())}`)
   if(balance > 100_000) send();
-  fs.appendFileSync(path.join(__dirname, 'balance_history.txt'), `${Date.now()}|${balance}\n`)
+  fs.appendFileSync(path.join(__dirname, 'balance_history2.txt'), `${Date.now()}|${balance}\n`)
 }
 
 e.once('balance', (balance) => {
@@ -372,4 +372,4 @@ e.on('gamble', (amount) => {
   setTimeout(gamble, 10 * 1000)
 })
 
-client.login(process.env.TOKEN1)
+client.login(process.env.TOKEN2)
